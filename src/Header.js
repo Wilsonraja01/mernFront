@@ -5,7 +5,7 @@ import {UserContext} from "./UserContext";
 export default function Header() {
   const {setUserInfo,userInfo} = useContext(UserContext);
   useEffect(() => {
-    fetch('https://mernback-z7zr.onrender.com/profile', {
+    fetch('http://localhost:4000/profile', {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
@@ -15,7 +15,7 @@ export default function Header() {
   }, []);
 
   function logout() {
-    fetch('https://mernback-z7zr.onrender.com/logout', {
+    fetch('http://localhost:4000/logout', {
       credentials: 'include',
       method: 'POST',
     });
@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header>
-      <Link to="/" className="logo">WA Blog</Link>
+      <Link to="/" className="logo">MyBlog</Link>
       <nav>
         {username && (
           <>
